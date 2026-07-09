@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OBEXER Installationstechnik – Heizung, Sanitär & Bad in Steyr</title>
+<meta name="description" content="OBEXER Installationstechnik in Steyr: Heizung, Sanitär, Badsanierung, Wärmepumpe & Notdienst. 4,9 Sterne aus 36 Bewertungen.">
+<style>
+  :root{
+    --pri:#1f6f8b; --pri-hell:#2c8aab; --creme:#f6f1e7; --dunkel:#12222b;
+    --second:#20505f; --gold:#e0a83c; --grau:#6b5f52;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Segoe UI',system-ui,sans-serif;color:var(--dunkel);background:var(--creme);line-height:1.6}
+  h1,h2,h3{font-family:Georgia,'Times New Roman',serif;font-weight:700;line-height:1.15}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+  a{color:inherit;text-decoration:none}
+
+  .demo-bar{background:var(--dunkel);color:#f6f1e7;text-align:center;font-size:.82rem;padding:8px 14px;letter-spacing:.02em}
+  .demo-bar b{color:var(--gold)}
+
+  header{position:sticky;top:0;z-index:50;background:rgba(246,241,231,.94);backdrop-filter:blur(8px);border-bottom:1px solid #e2d8c6}
+  nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+  .logo{font-family:Georgia,serif;font-size:1.4rem;font-weight:700;color:var(--pri);cursor:pointer}
+  .logo span{color:var(--dunkel)}
+  .navlinks{display:flex;gap:26px;font-size:.95rem;align-items:center}
+  .navlinks a{position:relative;transition:.2s}
+  .navlinks a:not(.btn):hover{color:var(--pri)}
+  .navlinks a.active:not(.btn){color:var(--pri)}
+  .navlinks a.active:not(.btn)::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:var(--pri);border-radius:2px}
+  .btn{background:var(--pri);color:#fff;padding:11px 20px;border-radius:6px;font-weight:600;transition:.2s;display:inline-block;border:none;cursor:pointer}
+  .btn:hover{background:var(--pri-hell)}
+  .burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
+  .burger span{width:26px;height:2px;background:var(--dunkel);border-radius:2px;transition:.2s}
+  @media(max-width:760px){
+    .burger{display:flex}
+    .navlinks{position:absolute;top:70px;left:0;right:0;background:var(--creme);flex-direction:column;gap:0;
+      max-height:0;overflow:hidden;transition:max-height .3s ease;border-bottom:1px solid #e2d8c6}
+    .navlinks.open{max-height:340px}
+    .navlinks a{padding:14px 22px;width:100%}
+    .navlinks .btn{margin:12px 22px;width:calc(100% - 44px);text-align:center}
+  }
+
+  .hero{position:relative;min-height:88vh;display:flex;align-items:center;
+    background:linear-gradient(120deg,rgba(18,34,43,.85),rgba(31,111,139,.5)),
+    repeating-linear-gradient(115deg,#173a48 0 22px,#1b4353 22px 44px);color:#fff}
+  .hero-in{padding:60px 0;max-width:660px}
+  .eyebrow{text-transform:uppercase;letter-spacing:.22em;font-size:.8rem;color:var(--gold);margin-bottom:18px}
+  .hero h1{font-size:3.2rem;margin-bottom:22px}
+  .hero p{font-size:1.2rem;opacity:.94;margin-bottom:32px;max-width:540px}
+  .hero .btn{padding:15px 30px;font-size:1.05rem;margin-right:12px}
+  .btn-ghost{background:transparent;border:1.5px solid rgba(255,255,255,.6)}
+  .btn-ghost:hover{background:rgba(255,255,255,.12)}
+  .stars{margin-top:34px;font-size:.95rem;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .stars b{color:var(--gold);font-size:1.15rem;letter-spacing:2px}
+  @media(max-width:600px){.hero h1{font-size:2.3rem}.hero .btn{margin-bottom:12px}}
+
+  section{padding:84px 0}
+  .sec-head{text-align:center;max-width:640px;margin:0 auto 52px}
+  .sec-head .eyebrow{color:var(--pri)}
+  .sec-head h2{font-size:2.3rem;margin-bottom:14px}
+  .sec-head p{color:var(--grau);font-size:1.08rem}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:26px}
+  .card{background:#fff;border:1px solid #ece1cf;border-radius:12px;padding:32px 26px;transition:.25s}
+  .card:hover{transform:translateY(-5px);box-shadow:0 16px 34px rgba(36,26,18,.10)}
+  .card .ic{width:52px;height:52px;border-radius:10px;background:var(--creme);display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin-bottom:18px}
+  .card h3{font-size:1.25rem;margin-bottom:10px}
+  .card p{color:var(--grau);font-size:.97rem}
+
+  .gallery{background:var(--dunkel);color:#fff}
+  .gallery .sec-head h2{color:#fff}
+  .gallery .sec-head .eyebrow{color:var(--gold)}
+  .gallery .sec-head p{color:#cbbfae}
+  .gal-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+  .shot{height:230px;border-radius:12px;position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:20px;font-weight:600;color:#fff}
+  .shot span{position:relative;z-index:2;font-family:Georgia,serif;font-size:1.15rem}
+  .shot::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent,rgba(0,0,0,.6))}
+  .s1{background:repeating-linear-gradient(45deg,#22617a 0 14px,#2b7290 14px 28px)}
+  .s2{background:repeating-linear-gradient(0deg,#1d5266 0 12px,#256179 12px 24px)}
+  .s3{background:repeating-linear-gradient(90deg,#2a6d86 0 16px,#327d99 16px 32px)}
+  .s4{background:repeating-linear-gradient(135deg,#1f5468 0 14px,#276880 14px 28px)}
+  .s5{background:repeating-linear-gradient(0deg,#2b7290 0 12px,#3384a4 12px 24px)}
+  .s6{background:repeating-linear-gradient(45deg,#1d5266 0 14px,#255f76 14px 28px)}
+
+  .about{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  .about-img{height:360px;border-radius:14px;background:linear-gradient(135deg,var(--pri),var(--second))}
+  .about ul{list-style:none;margin-top:20px}
+  .about li{padding:8px 0 8px 30px;position:relative}
+  .about li::before{content:"\2713";position:absolute;left:0;color:var(--pri);font-weight:700}
+  @media(max-width:820px){.about{grid-template-columns:1fr}.about-img{height:230px}}
+
+  .reviews{background:#fff}
+  .rev-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+  .rev{background:var(--creme);border-radius:12px;padding:26px;border:1px solid #ece1cf}
+  .rev .st{color:var(--gold);letter-spacing:2px;margin-bottom:12px}
+  .rev p{font-style:italic;color:#4a4034;margin-bottom:14px}
+  .rev .who{font-weight:600;font-size:.92rem}
+
+  .contact{background:var(--second);color:#fff}
+  .contact .sec-head h2{color:#fff}
+  .contact .sec-head p{color:rgba(255,255,255,.8)}
+  .ct-grid{display:grid;grid-template-columns:1fr 1fr;gap:46px}
+  .ct-info p{margin-bottom:16px;display:flex;gap:12px;align-items:center}
+  .ct-info .lbl{font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;opacity:.7}
+  form{background:#fff;border-radius:14px;padding:30px;color:var(--dunkel)}
+  form label{display:block;font-size:.85rem;font-weight:600;margin:14px 0 6px}
+  form input,form textarea{width:100%;padding:12px;border:1px solid #d8ccb8;border-radius:7px;font-family:inherit;font-size:.95rem}
+  form .btn{width:100%;margin-top:22px;padding:14px}
+  @media(max-width:820px){.ct-grid{grid-template-columns:1fr}}
+
+  footer{background:var(--dunkel);color:#cbbfae;padding:40px 0;text-align:center;font-size:.9rem}
+  footer b{color:#fff;font-family:Georgia,serif}
+  .foot-note{margin-top:16px;font-size:.8rem;opacity:.7}
+  .foot-note a{color:var(--gold)}
+
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.vis{opacity:1;transform:none}
+
+  .btt{position:fixed;right:22px;bottom:22px;width:46px;height:46px;border-radius:50%;
+    background:var(--pri);color:#fff;border:none;cursor:pointer;font-size:1.3rem;line-height:46px;
+    box-shadow:0 8px 20px rgba(0,0,0,.25);opacity:0;pointer-events:none;transform:translateY(12px);transition:.25s;z-index:60}
+  .btt.show{opacity:1;pointer-events:auto;transform:none}
+</style>
+</head>
+<body id="top">
+
+<div class="demo-bar">🚿 <b>DEMO-VORSCHAU</b> &ndash; so k&ouml;nnte Ihre neue Website aussehen. Erstellt von <b>Mlivo AI</b>, Enns &middot; unverbindlich</div>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <a href="#top" class="logo" title="Nach oben">OBEXER<span> Installationstechnik</span></a>
+      <button class="burger" id="burger" aria-label="Men&uuml;"><span></span><span></span><span></span></button>
+      <div class="navlinks" id="navlinks">
+        <a href="#leistungen">Leistungen</a>
+        <a href="#projekte">Projekte</a>
+        <a href="#ueber">&Uuml;ber uns</a>
+        <a href="#kontakt" class="btn">Anfrage senden</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="start">
+  <div class="wrap hero-in">
+    <div class="eyebrow">Installateur · Steyr</div>
+    <h1>Heizung, Bad und Wasser – in besten Händen.</h1>
+    <p>Ihr Installateur in Steyr für Heizung, Sanitär und moderne Badlösungen. Zuverlässig, sauber und mit 24h-Notdienst.</p>
+    <a href="#kontakt" class="btn">Termin anfragen</a>
+    <a href="#projekte" class="btn btn-ghost">Arbeiten ansehen</a>
+    <div class="stars"><b>&#9733;&#9733;&#9733;&#9733;&#9733;</b> 4,9 von 5 &middot; 36 Bewertungen – Kunden vertrauen uns</div>
+  </div>
+</section>
+
+<section id="leistungen">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Was wir machen</div>
+      <h2>Unsere Leistungen</h2>
+      <p>Von der Wartung bis zur kompletten Badsanierung – alles aus einer Hand.</p>
+    </div>
+    <div class="grid reveal">
+      <div class="card"><div class="ic">🔥</div><h3>Heizung</h3><p>Installation, Wartung und Umstieg auf moderne, sparsame Heizsysteme.</p></div>
+      <div class="card"><div class="ic">🚿</div><h3>Sanitär</h3><p>Wasser, Abwasser, Armaturen – fachgerecht installiert und dicht.</p></div>
+      <div class="card"><div class="ic">🛁</div><h3>Badsanierung</h3><p>Ihr neues Bad von der Planung bis zur schlüsselfertigen Übergabe.</p></div>
+      <div class="card"><div class="ic">♻️</div><h3>Wärmepumpe & Erneuerbare</h3><p>Zukunftssichere Technik für niedrige Betriebskosten und Förderungen.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="projekte">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Referenzen</div>
+      <h2>Ausgew&auml;hlte Projekte</h2>
+      <p>Ein kleiner Einblick in unsere Arbeit. (Platzhalter &ndash; hier kommen Ihre echten Projektfotos rein.)</p>
+    </div>
+    <div class="gal-grid reveal">
+      <div class="shot s1"><span>Moderne Badsanierung</span></div>
+      <div class="shot s2"><span>Wärmepumpen-Anlage</span></div>
+      <div class="shot s3"><span>Fußbodenheizung</span></div>
+      <div class="shot s4"><span>Design-Badezimmer</span></div>
+      <div class="shot s5"><span>Heizraum-Modernisierung</span></div>
+      <div class="shot s6"><span>Barrierefreie Dusche</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="ueber">
+  <div class="wrap about reveal">
+    <div class="about-img"></div>
+    <div>
+      <div class="eyebrow" style="color:var(--pri)">&Uuml;ber uns</div>
+      <h2 style="font-size:2.2rem;margin-bottom:14px">Ihr Installateur in und um Steyr</h2>
+      <p style="color:var(--grau)">Wir stehen für sauberes Arbeiten, ehrliche Beratung und Technik, die läuft. Ob Notfall, Wartung oder Traumbad – wir sind für Sie da.</p>
+      <ul>
+        <li>Meisterbetrieb mit erfahrenem Team</li>
+        <li>24-Stunden-Notdienst bei Rohrbruch & Ausfall</li>
+        <li>Beratung zu Förderungen für Wärmepumpe & Co.</li>
+        <li>4,9 Sterne aus 36 Google-Bewertungen</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="reviews">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow" style="color:var(--pri)">Kundenstimmen</div>
+      <h2>Das sagen unsere Kunden</h2>
+    </div>
+    <div class="rev-grid reveal">
+      <div class="rev"><div class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>&bdquo;Schnell, sauber und absolut zuverlässig. Unser neues Bad ist perfekt geworden.&ldquo;</p><div class="who">&mdash; zufriedener Kunde, Google</div></div>
+      <div class="rev"><div class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>&bdquo;Beim Heizungsausfall im Winter sofort da gewesen. Top Service!&ldquo;</p><div class="who">&mdash; Kunde aus Steyr</div></div>
+      <div class="rev"><div class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>&bdquo;Kompetente Beratung zur Wärmepumpe inklusive Förderung. Sehr empfehlenswert.&ldquo;</p><div class="who">&mdash; Kundin aus Steyr-Land</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="kontakt">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow" style="color:var(--gold)">Kontakt</div>
+      <h2>Projekt anfragen</h2>
+      <p>Erz&auml;hlen Sie uns von Ihrem Vorhaben &ndash; wir melden uns innerhalb von 24 Stunden.</p>
+    </div>
+    <div class="ct-grid reveal">
+      <div class="ct-info">
+        <p><span>&#128205;</span><span><span class="lbl">Adresse</span><br>Steyr, Oberösterreich</span></p>
+        <p><span>&#128222;</span><span><span class="lbl">Telefon</span><br>07252 93077</span></p>
+        <p><span>&#9993;</span><span><span class="lbl">E-Mail</span><br>office@obexer.gmbh</span></p>
+        <p><span>&#128336;</span><span><span class="lbl">&Ouml;ffnungszeiten</span><br>Mo–Fr 07:30–17:00 · Notdienst 24/7</span></p>
+        <p style="margin-top:24px;font-size:.9rem;opacity:.85">Servicegebiet: Steyr · Steyr-Land · Enns · Umgebung</p>
+      </div>
+      <form onsubmit="event.preventDefault();alert('Demo &ndash; in der echten Version geht Ihre Anfrage direkt per E-Mail an den Betrieb.');">
+        <label>Name</label><input type="text" placeholder="Ihr Name" required>
+        <label>Telefon oder E-Mail</label><input type="text" placeholder="So erreichen wir Sie" required>
+        <label>Ihr Anliegen</label><textarea rows="4" placeholder="Wie k&ouml;nnen wir helfen?"></textarea>
+        <button class="btn" type="submit">Anfrage absenden</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <b>OBEXER Installationstechnik</b> &middot; Steyr, Oberösterreich &middot; 07252 93077
+    <div class="foot-note">
+      Diese Seite ist eine unverbindliche <b>Demo-Vorschau</b>, erstellt von <a href="https://mlivo-ai.at">Mlivo AI</a> &ndash; KI-Agentur &amp; Webl&ouml;sungen aus Enns.<br>
+      Gef&auml;llt Ihnen die Richtung? Melden Sie sich: mlivo.office@gmail.com &middot; +43 660 4038996 &middot; &copy; <span id="year"></span>
+    </div>
+  </div>
+</footer>
+
+<button class="btt" id="btt" aria-label="Nach oben" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<script>
+  document.getElementById('year').textContent=new Date().getFullYear();
+  var btt=document.getElementById('btt');
+  var secs=[].slice.call(document.querySelectorAll('section[id]'));
+  var navA=[].slice.call(document.querySelectorAll('.navlinks a[href^="#"]'));
+  window.addEventListener('scroll',function(){
+    btt.classList.toggle('show',window.scrollY>500);
+    var cur='';
+    secs.forEach(function(s){if(window.scrollY>=s.offsetTop-140)cur=s.id;});
+    navA.forEach(function(a){a.classList.toggle('active',a.getAttribute('href')==='#'+cur);});
+  });
+  var burger=document.getElementById('burger'),nav=document.getElementById('navlinks');
+  burger.addEventListener('click',function(){nav.classList.toggle('open');});
+  navA.forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('open');});});
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('vis');});},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+</script>
+</body>
+</html>
